@@ -42,6 +42,7 @@ gem 'bcrypt'
 gem 'jquery-rails'
 
 gem 'mechanize'
+gem 'nmatrix'
 
 
 group :development, :test do
