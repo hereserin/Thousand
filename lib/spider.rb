@@ -19,6 +19,7 @@ class Spider
 
   def enqueue(url, method, data = {})
     url = agent.resolve(url).to_s
+
     return if @handlers[url]
     @urls << url
     @handlers[url] ||= {method: method, data: {}}

@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_165224) do
+ActiveRecord::Schema.define(version: 2019_03_26_215322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pages", force: :cascade do |t|
     t.string "url", null: false
+    t.decimal "page_rank"
+    t.string "title"
     t.index ["url"], name: "index_pages_on_url", unique: true
   end
 

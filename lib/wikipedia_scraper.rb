@@ -21,16 +21,47 @@ class WikipediaScraper
   end
 
   def process_wiki(page, data = {} )
+    page_record = Page.find_by(url: page.canonical_uri.to_s )
+    if page_record
+      puts "Found page: " + page_record.title
+    else
+      page_record = Page.new(url: page.canonical_uri, title: page.title )
+    end
+
+    if page_record.save
+      puts "Saved the following page: " + page_record.url + " ... " + page_record.title
+    else
+      puts "** Did NOT save the following page: " + page_record.url
+    end
 
     paragraphs = page.search("p").each_with_object([]) do |paragraph, arr|
+      paragraph_record = Paragraph.new( page_id: page_record.id, content: paragraph )
+      if paragraph_record.save
+        puts "Saved a paragraph with the following id: " + paragraph_record.id.to_s
+      else
+        puts "** paragraph did not persist **"
+      end
       arr << paragraph.text
     end
 
     links = page.links.each_with_object({}) do |link, o|
       key = link.text
-      val = link.href
+      val = link.resolved_uri
       o[key] = val
+      link_to_page = Page.find_by(url: link.resolved_uri.to_s )
+      if link_to_page
+        puts "Found link as page: " + link_to_page.title
+      else
+        link_to_page = Page.new(url: link.resolved_uri, title: link.text )
+      end
+
+      if link_to_page.save
+        puts "Saved the following link as page: " + link_to_page.url + " ... " + link_to_page.title
+      else
+        puts "** Did NOT save the following link as page: " + link_to_page.url
+      end
     end
+
     spider.record(data.merge(links).merge(paragraphs: paragraphs))
   end
 
