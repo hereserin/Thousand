@@ -7,10 +7,17 @@ def adjacency_matrix
   new_adjacency_matrix = []
 
 
-  all_pages.each do |page|
+  all_pages_ids_arr.each do |page_id|
+    page = all_pages.find_by(id: page_id)
+
     new_row = page.create_own_row(all_pages, lookup_hsh)
-    new_adjacency_matrix << new_row
+    new_adjacency_matrix[lookup_hsh[page_id]] = new_row
   end
+
+  # all_pages.each do |page|
+  #   new_row = page.create_own_row(all_pages, lookup_hsh)
+  #   new_adjacency_matrix << new_row
+  # end
 
   return new_adjacency_matrix
 
