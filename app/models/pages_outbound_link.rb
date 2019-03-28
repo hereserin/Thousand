@@ -1,4 +1,4 @@
-class PageOutboundLink < ApplicationRecord
+class PagesOutboundLink < ApplicationRecord
   belongs_to :page,
     class_name: 'Page',
     foreign_key: :page_id,

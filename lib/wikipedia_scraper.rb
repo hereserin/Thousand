@@ -57,6 +57,16 @@ class WikipediaScraper
 
       if link_to_page.save
         puts "Saved the following link as page: " + link_to_page.url + " ... " + link_to_page.title
+        outbound_link_record = PagesOutboundLink.find_by(page_id: page_record.id, outbound_link_id: link_to_page.id )
+        if outbound_link_record
+          puts "....Outbound link was found "
+        else
+          outbound_link_record = PagesOutboundLink.new(page_id: page_record.id, outbound_link_id: link_to_page.id )
+        end
+        
+        if outbound_link_record.save
+          puts "....Outbound link has been saved to page."
+        end
       else
         puts "** Did NOT save the following link as page: " + link_to_page.url
       end
