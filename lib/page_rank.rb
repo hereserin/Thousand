@@ -1,6 +1,5 @@
 require 'matrix_operators'
 
-
 def pagerank(matrix, eps, d)
   n_size = matrix[0].length
 

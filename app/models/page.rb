@@ -20,4 +20,30 @@ class Page < ApplicationRecord
     through: :pages_outbound_links,
     source: :page
 
+  def total_outbound_links
+    @total_outbound_links ||= self.outbound_links.count
+    @total_outbound_links
+  end
+
+  def create_own_row(all_pages)
+    adj_mtx_row = []
+    all_pages_count = all_pages.count
+
+    all_pages.each do |page|
+      adj_func = 0
+
+      links_to_that_page = self.outbound_links.select {|link| link.id == page.id }
+      if links_to_that_page.count > 0
+        adj_func = links_to_that_page.count / all_pages_count
+      end
+      
+      adj_mtx_row << adj_func
+    end
+
+    return adj_mtx_row
+  end
+
+
+
+
 end
