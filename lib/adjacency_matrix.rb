@@ -1,8 +1,8 @@
-def adjacency_matrix
+def adjacency_matrix(all_pages, all_pages_ids_arr, lookup_hsh)
 
-  all_pages = Page.all
-  all_pages_ids_arr = all_pages.map {|page| page.id}.sort
-  lookup_hsh = create_coordinate_lookup_hash(all_pages_ids_arr)
+  # all_pages = Page.all
+  # all_pages_ids_arr = all_pages.map {|page| page.id}.sort
+  # lookup_hsh = create_coordinate_lookup_hash(all_pages_ids_arr)
 
   new_adjacency_matrix = []
 
@@ -31,4 +31,8 @@ def create_coordinate_lookup_hash(ids_arr)
     i += 1
   end
   return lookup_hsh
+end
+
+def sorted_page_ids_array(all_pages)
+  all_pages.map {|page| page.id}.sort
 end

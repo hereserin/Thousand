@@ -7,7 +7,10 @@ task :rank_page_index => :environment do
   puts "Starting adjacency matrix..."
   start_time = Time.now
 
-  adj_matrix = adjacency_matrix
+  all_pages = Page.all
+  ids_array = sorted_page_ids_array(all_pages)
+  coord_lookup_hash = create_coordinate_lookup_hash(ids_array)
+  adj_matrix = adjacency_matrix(all_pages, ids_array, coord_lookup_hash)
 
   puts "Matrix created: "
   print adj_matrix
