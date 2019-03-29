@@ -1,0 +1,130 @@
+html,
+head,
+body,
+header,
+nav,
+a,
+ul,
+li,
+main,
+section,
+p,
+small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: #494343;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: "Source Sans Pro", sans-serif;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lobster", cursive;
+  text-align: center;
+}
+
+h1 {
+  font-size: 115px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+body {
+  --blue: #3f51b5;
+  --light-blue: #767faf;
+  --off-black: #494343;
+  --grey: #d1cede;
+  --dark-grey: #9895a2;
+  --light-grey: #f7f7f7;
+  --eggplant: #764465;
+  --teal: #009687;
+  background-color: var(--light-grey);
+}
+
+p,
+section,
+div,
+span,
+input,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  background-color: var(--off-black);
+  color: var(--teal);
+  height: 50px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 3px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+nav h2 {
+  font-size: 40px;
+  margin-inline-start: 20px;
+}
+
+.job-finder-title {
+  justify-content: flex-start;
+  margin: 5px;
+}
+
+button,
+input {
+  margin: 10px;
+  border-style: solid;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+}
+
+button {
+  background-color: var(--dark-grey);
+  color: white;
+  border-radius: 5px;
+  width: 200px;
+  font-size: 30px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: var(--light-blue);
+}
+
+button:active {
+  background-color: var(--light-blue);
+}
+
+input {
+  padding: 15px;
+  border-color: var(--light-grey);
+  border-width: thin;
+  border-radius: 30px;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  align-content: space-between;
+}
+
+nav div {
+  padding-left: 100px;
+}
