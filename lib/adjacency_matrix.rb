@@ -36,3 +36,14 @@ end
 def sorted_page_ids_array(all_pages)
   all_pages.map {|page| page.id}.sort
 end
+
+def assign_pageranks(all_pages, lookup_hsh, pageranks)
+
+  all_pages.each do |page|
+    rank_location = lookup_hsh[page.id]
+    rank = pageranks[rank_location]
+    page.page_rank = rank[0]
+    page.save
+  end
+  return true
+end
