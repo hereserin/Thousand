@@ -3,7 +3,9 @@ import React from "react";
 const PageIndexItem = props => {
   return (
     <div className="page-index-item">
-      <p className="page-clickable-title">{props.title}</p>
+      <a href={props.url}>
+        <p className="page-clickable-title">{props.title}</p>
+      </a>
       <p className="page-url">{props.url}</p>
       <p className="page-excerpt">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
