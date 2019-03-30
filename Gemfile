@@ -42,7 +42,9 @@ gem 'bcrypt'
 gem 'jquery-rails'
 
 gem 'mechanize'
-gem 'nmatrix'
+# gem 'nmatrix'
+gem 'aws-sdk', '~> 3'
+
 
 
 group :development, :test do
