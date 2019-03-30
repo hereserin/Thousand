@@ -24,6 +24,7 @@ class WikipediaScraper
     page_record = Page.find_by(url: page.canonical_uri.to_s )
     if page_record
       puts "Found page: " + page_record.title
+      page_record.title = page.title # update page title 
     else
       page_record = Page.new(url: page.canonical_uri, title: page.title )
     end
@@ -63,7 +64,7 @@ class WikipediaScraper
         else
           outbound_link_record = PagesOutboundLink.new(page_id: page_record.id, outbound_link_id: link_to_page.id )
         end
-        
+
         if outbound_link_record.save
           puts "....Outbound link has been saved to page."
         end
