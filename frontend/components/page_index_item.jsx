@@ -7,6 +7,7 @@ const PageIndexItem = props => {
         <p className="page-clickable-title">{props.title}</p>
       </a>
       <p className="page-url">{props.url}</p>
+      <p />
       <p className="page-excerpt">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

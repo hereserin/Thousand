@@ -4,7 +4,9 @@
 
 .page-index-item {
   background-color: white;
-  margin: 10px;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 .page-clickable-title {
